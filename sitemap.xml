@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.core-cc.com/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.core-cc.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.core-cc.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.core-cc.com/"/>
+  </url>
+  <url>
+    <loc>https://www.core-cc.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.core-cc.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.core-cc.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.core-cc.com/"/>
+  </url>
+  <url>
+    <loc>https://www.core-cc.com/impressum</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.core-cc.com/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.core-cc.com/en/legal-notice"/>
+  </url>
+  <url>
+    <loc>https://www.core-cc.com/en/legal-notice</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.core-cc.com/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.core-cc.com/en/legal-notice"/>
+  </url>
+  <url>
+    <loc>https://www.core-cc.com/datenschutz</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.core-cc.com/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.core-cc.com/en/privacy"/>
+  </url>
+  <url>
+    <loc>https://www.core-cc.com/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://www.core-cc.com/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.core-cc.com/en/privacy"/>
+  </url>
+</urlset>
