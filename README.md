@@ -3,18 +3,18 @@
 Website von **CORE. Consulting & Coaching** (Kim Burzan) – One-Pager mit Impressum und Datenschutz, Deutsch und Englisch.
 Statisches HTML/CSS ohne Build-Schritt, kein JavaScript, keine Cookies, keine externen Abfragen.
 
-Workflow: **Claude → GitHub → Vercel**. Jeder Push auf `main` wird von Vercel automatisch veröffentlicht.
+Workflow: **Claude → GitHub → Server bei comvos**. Jeder Push auf `main` wird per GitHub Actions (`.github/workflows/deploy.yml`, rsync) nach `/home/corecc/public_html/` übertragen.
 
 ## Seiten
 
-| Deutsch        | Englisch           | Datei                                        |
-| -------------- | ------------------ | -------------------------------------------- |
-| `/`            | `/en`              | `index.html` · `en/index.html`               |
-| `/impressum`   | `/en/legal-notice` | `impressum.html` · `en/legal-notice.html`    |
-| `/datenschutz` | `/en/privacy`      | `datenschutz.html` · `en/privacy.html`       |
-| 404            |                    | `404.html` (zweisprachig)                    |
+| Deutsch             | Englisch                 | Datei                                     |
+| ------------------- | ------------------------ | ----------------------------------------- |
+| `/`                 | `/en/`                   | `index.html` · `en/index.html`            |
+| `/impressum.html`   | `/en/legal-notice.html`  | `impressum.html` · `en/legal-notice.html` |
+| `/datenschutz.html` | `/en/privacy.html`       | `datenschutz.html` · `en/privacy.html`    |
+| 404                 |                          | `404.html` (zweisprachig)                 |
 
-Saubere URLs ohne `.html` regelt `vercel.json` (`cleanUrls`). Die alten WordPress-Adressen `/impressum/` und `/datenschutz/` leiten automatisch auf die neuen um.
+Alle Links zeigen direkt auf die `.html`-Dateien – das funktioniert auf jedem Server. Die `.htaccess` liefert zusätzlich kurze Adressen ohne Endung aus (`/impressum`), leitet die alten WordPress-Adressen `/impressum/` und `/datenschutz/` um und zeigt bei unbekannten Adressen die `404.html`. Der cPanel-Block in der `.htaccess` bleibt unverändert. `vercel.json` gilt nur, falls die Seite zusätzlich über Vercel läuft.
 
 ## Gestaltung
 
@@ -47,12 +47,11 @@ Der Claim auf der Startseite wird auf sehr niedrigen Bildschirmen zusätzlich an
 ## Inhalte pflegen
 
 - Texte stehen direkt in den HTML-Dateien. Bei Änderungen immer **beide Sprachen** anpassen.
-- Kopf und Fuß (Logo, Sprachwahl, Kontaktband) sind in jeder Seite enthalten – Änderungen dort in allen sieben Dateien nachziehen.
+- Kopf und Fuß (Logo, Sprachwahl, Kontaktband, Links zu Impressum/Datenschutz) sind in jeder Seite enthalten – Änderungen dort in allen sieben Dateien nachziehen. Interne Links immer mit `.html` bzw. `/en/` schreiben.
 - Nach CSS-Änderungen die Versionsnummer `style.css?v=…` in den Seiten erhöhen, damit Browser die neue Datei laden.
 - Porträt: `assets/img/kim-burzan-{480,720,960,1200,1377}.{avif,webp}` (freigestellt, transparent). Neue Fotos in denselben Breiten ablegen.
 
-## Vercel einrichten (einmalig)
+## Deployment
 
-1. In Vercel **Add New → Project** und das Repo `grafitecture/core_cc` importieren.
-2. Framework Preset **Other**, Build Command und Output Directory leer lassen.
-3. Unter **Settings → Domains** `www.core-cc.com` und `core-cc.com` hinzufügen (Weiterleitung auf `www`) und die DNS-Einträge beim Domain-Anbieter setzen.
+- Produktion: GitHub Actions → rsync → comvos (Zugangsdaten als GitHub-Secrets `SFTP_*`, `SSH_KNOWN_HOSTS`). Ausgeschlossene Dateien stehen in `.rsyncignore`.
+- Optional Vercel (Vorschau): Repo in Vercel importieren, Framework Preset **Other**, Build Command und Output Directory leer lassen.

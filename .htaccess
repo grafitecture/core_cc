@@ -17,3 +17,48 @@ RewriteEngine on
 RewriteCond %{HTTP_HOST} ^core\-cc\.de$ [OR]
 RewriteCond %{HTTP_HOST} ^www\.core\-cc\.de$
 RewriteRule ^/?$ "https\:\/\/www\.core\-cc\.com\/" [R=301,L]
+
+# ---------------------------------------------------------------------
+# core-cc.com – statische Seite (Deploy per GitHub Actions / rsync)
+# Alle Links zeigen direkt auf die .html-Dateien. Die Regeln hier sind
+# Komfort für alte WordPress-Adressen und kurze Adressen ohne Endung.
+# ---------------------------------------------------------------------
+
+ErrorDocument 404 /404.html
+
+RewriteBase /
+
+# Alte WordPress-Adressen mit Schrägstrich: /impressum/ -> /impressum.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+)/$ /$1.html [R=301,L]
+
+# Kurze Adressen ohne Endung: /impressum -> impressum.html, /en/privacy -> en/privacy.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+<IfModule mod_mime.c>
+  AddType image/avif .avif
+  AddType image/webp .webp
+  AddType font/woff2 .woff2
+  AddType application/manifest+json .webmanifest
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "DENY"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/avif "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType text/css "access plus 1 month"
+</IfModule>
