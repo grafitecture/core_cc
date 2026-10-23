@@ -27,22 +27,22 @@ Alle Links zeigen direkt auf die `.html`-Dateien – das funktioniert auf jedem 
 
 **Schrift:** Roboto (variabel 100–900), lokal unter `assets/fonts/` – dieselbe Datei wie auf der bisherigen Seite.
 
-**Typo-Skala (Faktor √2) mit `clamp()`:** Endwert ab 1600 px Viewport, Minimum bei 360 px, dazwischen fließend.
+**Typo-Skala Major Third (1.25) mit `clamp()`:** Endwert ab 1600 px Viewport, Minimum bei 360 px (Minor Third 1.2), dazwischen fließend.
 
 | Element | Desktop (Vorgabe) | Mobil (360 px) | CSS-Variable |
 | ------- | ----------------- | -------------- | ------------ |
-| h1      | 7.993rem          | 2.986rem       | `--fs-h1`    |
-| h2      | 5.653rem          | 2.488rem       | `--fs-h2`    |
-| h3      | 3.998rem          | 2.074rem       | `--fs-h3`    |
-| h4      | 2.827rem          | 1.728rem       | `--fs-h4`    |
-| h5      | 1.999rem          | 1.44rem        | `--fs-h5`    |
-| h6      | 1.414rem          | 1.2rem         | `--fs-h6`    |
+| h1      | 3.815rem          | 2.986rem       | `--fs-h1`    |
+| h2      | 3.052rem          | 2.488rem       | `--fs-h2`    |
+| h3      | 2.441rem          | 2.074rem       | `--fs-h3`    |
+| h4      | 1.953rem          | 1.728rem       | `--fs-h4`    |
+| h5      | 1.563rem          | 1.44rem        | `--fs-h5`    |
+| h6      | 1.25rem           | 1.2rem         | `--fs-h6`    |
 | p       | 1rem              | 1rem           | `--fs-p`     |
-| small   | 0.707rem          | 0.707rem       | `--fs-small` |
-| xs      | 0.5rem            | 0.5rem         | `--fs-xs`    |
+| small   | 0.8rem            | 0.8rem         | `--fs-small` |
+| xs      | 0.64rem           | 0.64rem        | `--fs-xs`    |
 
-Die Abstände (`--s-2` … `--s6`) folgen derselben Skala. Für Größe unabhängig vom Tag gibt es die Klassen `.h1` … `.h6`, `.small`, `.xs`.
-Der Claim auf der Startseite wird auf sehr niedrigen Bildschirmen zusätzlich an die Höhe gekoppelt, damit Claim, Text und Porträt in den ersten Bildschirm passen.
+Die Abstände (`--s-2` … `--s6`) folgen weiter der √2-Skala. Für Größe unabhängig vom Tag gibt es die Klassen `.h1` … `.h6`, `.small`, `.xs`.
+Unter 360 px Breite wird der Claim zusätzlich an die Breite gekoppelt, damit nichts überläuft.
 
 ## Inhalte pflegen
 
