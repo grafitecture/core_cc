@@ -44,6 +44,17 @@ Alle Links zeigen direkt auf die `.html`-Dateien – das funktioniert auf jedem 
 Die Abstände (`--s-2` … `--s6`) folgen weiter der √2-Skala. Für Größe unabhängig vom Tag gibt es die Klassen `.h1` … `.h6`, `.small`, `.xs`.
 Unter 360 px Breite wird der Claim zusätzlich an die Breite gekoppelt, damit nichts überläuft.
 
+## Grafitecture-Feld
+
+Lime-Feld mit Grafitecture-Logo, „Marken mit KI.“ und Link auf grafitecture.de – ganz unten in Impressum und Datenschutz (DE und EN), als letztes Element von `.legal__body`, direkt vor der Fußzeile.
+
+- **Quelle:** Kit v1.2 aus `grafitecture/lannee_webseite`, Ordner `kit/grafitecture-credit/` (README dort). Unverändert kopiert nach `kit/grafitecture-credit/`; der Ordner wird nicht auf den Server übertragen (`.rsyncignore`).
+- **Markup:** Inhalt von `snippet.de.html` in `impressum.html` und `datenschutz.html`, `snippet.en.html` in `en/legal-notice.html` und `en/privacy.html` – samt Kommentarzeile, damit die Stelle bei einer neuen Kit-Version leicht zu finden ist.
+- **CSS:** `grafitecture-credit.css` unverändert am Ende von `assets/css/style.css`.
+- **Link** immer `https://www.grafitecture.de/` (mit www), öffnet in neuem Fenster.
+- **Ausnahme von den Farbregeln:** Die Farben des Feldes (Lime `#dafd55`, Schrift/Logo `#435960`, Weiß) und seine Größe (höchstens 25.2rem) gehören Grafitecture, nicht der Website. Sie sind die einzige Ausnahme von „nur `--ink` und `--paper`“ und werden nicht an core-cc angepasst. Änderungen am Feld nur im Kit machen und dann hier nachziehen.
+- Keine weitere Nennung von Grafitecture als Gestalter in Impressum oder Datenschutz (der frühere Abschnitt „Konzeption und Gestaltung“ im Impressum ist entfallen). Abschnitt 6 der Datenschutzerklärung (Betreuung durch Grafitecture, Art. 28 DSGVO) bleibt – er ist eine Datenschutzangabe, keine Gestalternennung.
+
 ## Inhalte pflegen
 
 - Texte stehen direkt in den HTML-Dateien. Bei Änderungen immer **beide Sprachen** anpassen.
