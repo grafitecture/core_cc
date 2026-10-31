@@ -516,6 +516,15 @@ small, .small { font-size: var(--fs-small); line-height: 1.5; letter-spacing: 0.
   margin-top: var(--s-2);
 }
 
+.legal__body ul {
+  margin-bottom: 0;
+  padding-left: 1.25em;
+}
+
+.legal__body > p + ul {
+  margin-top: var(--s-2);
+}
+
 .legal__label {
   font-weight: 500;
 }
