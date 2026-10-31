@@ -14,7 +14,7 @@ Workflow: **Claude → GitHub → Server bei comvos**. Jeder Push auf `main` wir
 | `/datenschutz.html` | `/en/privacy.html`       | `datenschutz.html` · `en/privacy.html`    |
 | 404                 |                          | `404.html` (zweisprachig)                 |
 
-Alle Links zeigen direkt auf die `.html`-Dateien – das funktioniert auf jedem Server. Die `.htaccess` liefert zusätzlich kurze Adressen ohne Endung aus (`/impressum`), leitet die alten WordPress-Adressen `/impressum/` und `/datenschutz/` um und zeigt bei unbekannten Adressen die `404.html`. Der cPanel-Block in der `.htaccess` bleibt unverändert. `vercel.json` gilt nur, falls die Seite zusätzlich über Vercel läuft.
+Alle Links zeigen direkt auf die `.html`-Dateien – das funktioniert auf jedem Server. Die `.htaccess` liefert zusätzlich kurze Adressen ohne Endung aus (`/impressum`), leitet die alten WordPress-Adressen `/impressum/` und `/datenschutz/` um und zeigt bei unbekannten Adressen die `404.html`. HTML-Seiten gehen mit `Cache-Control: no-cache` raus, damit Browser nach einem Deploy sofort die neue Fassung laden (CSS, Bilder und Schrift werden weiter lange zwischengespeichert – deshalb `style.css?v=…`). Der cPanel-Block in der `.htaccess` bleibt unverändert. `vercel.json` gilt nur, falls die Seite zusätzlich über Vercel läuft.
 
 ## Gestaltung
 

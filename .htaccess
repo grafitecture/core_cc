@@ -51,6 +51,12 @@ RewriteRule ^(.+)$ $1.html [L]
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set X-Frame-Options "DENY"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+  # HTML bei jedem Aufruf beim Server nachfragen (unverändert: 304), damit neue
+  # Fassungen nach einem Deploy sofort sichtbar sind und nicht aus dem Browser-Cache kommen
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
 </IfModule>
 
 <IfModule mod_expires.c>
