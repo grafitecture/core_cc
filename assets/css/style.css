@@ -262,6 +262,11 @@ small, .small { font-size: var(--fs-small); line-height: 1.5; letter-spacing: 0.
   text-wrap: balance;
 }
 
+/* Jeder Satz der Fokuszeile beginnt auf einer eigenen Zeile */
+.hero__focus > span {
+  display: block;
+}
+
 /* Fließtext der Startseite in h6-Größe, damit er neben dem großen Claim trägt */
 .hero__body,
 .hero__offer,
